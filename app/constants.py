@@ -78,5 +78,5 @@ sample_products = [
         "category": "Accessories",
         "price": 49.99,
         "stock_quantity": 85,
-    }
+    },
 ]
