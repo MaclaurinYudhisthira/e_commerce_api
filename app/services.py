@@ -34,7 +34,6 @@ class EcommerceService:
         if discount_code:
             discount = self.validate_discount_code(discount_code)
             discounted_amount = total_amount * ((100 - discount) / 100)
-        
         order = Order(id=str(self.order_count + 1), items=self.cart.items, total_amount=total_amount, discount_code=discount_code,discounted_amount=discounted_amount)
 
         self.orders.append(order)

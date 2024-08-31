@@ -22,7 +22,7 @@ def get_discount_codes():
 def get_cart():
     return service.get_cart()
 
-@app.post("/cart/add")
+@app.post("/cart")
 def add_to_cart(item: Item):
     service.add_item_to_cart(item)
     return {"message": "Item added to cart"}

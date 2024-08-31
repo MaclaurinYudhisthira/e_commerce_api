@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, validator
 from typing import List, Optional
 from fastapi import HTTPException
 
@@ -30,7 +30,7 @@ class Order(BaseModel):
     discount_code: Optional[str] = None
     discounted_amount: Optional[float] = None
 
-    @field_validator('items',mode="before")
+    @validator('items',pre=True)
     def price_must_be_positive(cls, value):
         if not value:
             raise HTTPException(status_code=422, detail='Cart cannot be empty')
